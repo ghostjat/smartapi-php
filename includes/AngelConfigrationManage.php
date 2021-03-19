@@ -49,6 +49,8 @@ class AngelConfigrationManage
 				    "cancel_rule" => "/rest/secure/angelbroking/gtt/v1/cancelRule",
 				    "rule_details" => "/rest/secure/angelbroking/gtt/v1/ruleDetails",
 				    "rule_list" => "/rest/secure/angelbroking/gtt/v1/ruleList",
+				
+				    "candle_data"=>"/candle-data-service/rest/secure/angelbroking/historical/v1/getCandleData",
 				];
 
 			return $Configration;	

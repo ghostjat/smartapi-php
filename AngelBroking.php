@@ -545,7 +545,41 @@ class AngelBroking
 		
 		return $response_data;
 	}
+	
+	/*Historical Api*/
+	public static function GetCandleData($paramArray)
+	{
+		extract($paramArray);
 
+		//getToken() check whether userlogged in or not and return jwtToken
+		$token = self::getToken();
+				
+		 if ($token['status']) {
+		 	//jwtToken not empty 
+			$jwtToken = $token['jwtToken'];
+
+			//get url from config file
+			$UrlData = AngelConfigrationManage::AngelConfigrationData();
+			$url = $UrlData['root'].$UrlData['candle_data'];	  	
+			
+			$api_parameter	=	array("exchange"=> "$exchange",
+								     "symboltoken"=> "$symboltoken",
+								     "interval"=> "$interval",
+								     "fromdate"=> "$fromdate",
+								     "todate"=> "$todate"
+							 );			
+			
+			// Common function to call smart api
+			$response_data	=	self::CurlOperation($url,$api_parameter, $jwtToken,'POST');
+		}
+		else{
+			$response_data['status'] = 'fail';
+			$response_data['error'] = 'The token is invalid';
+			$response_data	=	json_encode($response_data);
+		}
+		
+		return $response_data;
+	}
 
 	public static function getToken()
 	{

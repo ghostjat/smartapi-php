@@ -386,7 +386,7 @@ class AngelBroking
 						            "transactiontype"	=> 	"$transactiontype",
 						            "producttype"		=> 	"$producttype",
 						            "price"				=> 	intval($price),
-						            "qty"				=> 	intval($quantity),
+						            "qty"				=> 	intval($qty),
 						            "triggerprice"		=>	intval($triggerprice),
 						            "disclosedqty"		=>	intval($disclosedqty),
 						            "timeperiod"		=>	intval($timeperiod)
@@ -430,7 +430,7 @@ class AngelBroking
 						            "transaction type"	=> 	"$transactiontype",
 						            "producttype"		=> 	"$producttype",
 						            "price"				=> 	"$price",
-						            "quantity"			=> 	"$quantity",
+						            "qty"			=> 	"$qty",
 						            "triggerprice"		=>	"$triggerprice",
 						            "disclosedqty"		=>	"$disclosedqty",
 						            "timeperiod"		=>	"$timeperiod"

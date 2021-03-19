@@ -37,8 +37,8 @@ use AngelBroking\AngelBroking;
                                     'quantity' => '1',
                                     'producttype' => 'INTRADAY',
                                     'price' => 312.65,
-                                    'squareoff' => 0
-                                    'stoploss' => 0
+                                    'squareoff' => 0,
+                                    'stoploss' => 0,
                                     'duration' => 'DAY'));
                                     
      $modifyOrder = $ab->ModifyOrder(array('variety' => 'NORMAL',
@@ -50,8 +50,8 @@ use AngelBroking\AngelBroking;
                                     'quantity' => '1',
                                     'producttype' => 'INTRADAY',
                                     'price' => 200,
-                                    'squareoff' => 0
-                                    'stoploss' => 0
+                                    'squareoff' => 0,
+                                    'stoploss' => 0,
                                     'duration' => 'DAY',
                                     'orderid' =>210312000000394));
     

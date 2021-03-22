@@ -2,7 +2,7 @@
 
 ## Installation
 
-### Without composer
+#### Without composer
 Download library from [here](https://github.com/angelbroking-github/smartapi-php) and use as your custome library
 
 ### Via composer

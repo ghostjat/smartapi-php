@@ -7,14 +7,15 @@ composer require smartapi-php/angelbroking
 
 ## Import package to controller
 ```
-use AngelBroking\AngelBroking;
+use AngelBroking\SmartApi;
+use AngelBroking\Websocket;
 ```
 
 ## Getting started with API
 ```php
   //in your function of controller create instance of AngelBroking class
 
-    $ab = new AngelBroking();
+    $ab = new SmartApi();
     
     //Login
     $ab->GenerateSession("Client-code","password");
@@ -123,5 +124,6 @@ use AngelBroking\AngelBroking;
 
 ## Getting started with SmartAPI Websocket's
 ```
- print_r($ab->SocketConnet($client-code, $feed-token, $task, $script));   
+$websocket = new Websocket();
+ print_r($websocket->SocketConnet($client-code, $feed-token, $task, $script));   
 ```

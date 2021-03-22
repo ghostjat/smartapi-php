@@ -1,5 +1,6 @@
 <?php
-
+namespace AngelBroking; 
+session_start();
 require_once("includes/AngelConfigrationManage.php");	
 
 

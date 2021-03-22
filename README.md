@@ -1,11 +1,36 @@
 # SmartAPI - PHP Client SDK
 
 ## Installation
+
+### Without composer
+Download library from [here](https://github.com/angelbroking-github/smartapi-php) and use as your custome library
+
+### Via composer
+Official installation method is via composer
 ```bash
 composer require smartapi-php/angelbroking
 ```
 
-## Import package to controller
+
+
+## Usage
+The simplest usage of the library would be as follows:
+```
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+$ab = new \AngelBroking\SmartApi();
+	
+$$ab->GenerateSession("client-code","password");
+   
+
+?>
+```
+
+
+## Usage for frameworks
+Import package to controller
 ```
 use AngelBroking\SmartApi;
 use AngelBroking\Websocket;

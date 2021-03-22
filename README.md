@@ -20,9 +20,9 @@ The simplest usage of the library would be as follows:
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$ab = new \AngelBroking\SmartApi();
+$smart_api  = new \AngelBroking\SmartApi();
 	
-$$ab->GenerateSession("client-code","password");
+$smart_api ->GenerateSession("client-code","password");
    
 
 ?>
@@ -40,21 +40,21 @@ use AngelBroking\Websocket;
 ```php
   //in your function of controller create instance of AngelBroking class
 
-    $ab = new SmartApi();
+    $smart_api  = new SmartApi();
     
     //Login
-    $ab->GenerateSession("Client-code","password");
+    $smart_api ->GenerateSession("Client-code","password");
     
     //methods
-    $token = $ab->GenerateToken();  
+    $token = $smart_api ->GenerateToken();  
     
-    $profile = $ab->GetProfile();
+    $profile = $smart_api ->GetProfile();
     
-    $ab->LogOut(array('clientcode'=>'your client-code'));
+    $smart_api ->LogOut(array('clientcode'=>'your client-code'));
     
-    $rms = $ab->GetRMS();
+    $rms = $smart_api ->GetRMS();
     
-    $order = $ab->PlaceOrder(array('variety' => 'NORMAL',
+    $order = $smart_api ->PlaceOrder(array('variety' => 'NORMAL',
                                     'tradingsymbol'  =>  'JINDALSTEL-EQ',
                                     'symboltoken' => '6733',
                                     'exchange' => 'NSE',
@@ -67,7 +67,7 @@ use AngelBroking\Websocket;
                                     'stoploss' => 0,
                                     'duration' => 'DAY'));
                                     
-     $modifyOrder = $ab->ModifyOrder(array('variety' => 'NORMAL',
+     $modifyOrder = $smart_api ->ModifyOrder(array('variety' => 'NORMAL',
                                     'tradingsymbol'  =>  'JINDALSTEL-EQ',
                                     'symboltoken' => '6733',
                                     'exchange' => 'NSE',
@@ -81,18 +81,18 @@ use AngelBroking\Websocket;
                                     'duration' => 'DAY',
                                     'orderid' =>210312000000394));
     
-    $cancelOrder = $ab->CancelOrder(array('variety' => 'NORMAL',
+    $cancelOrder = $smart_api ->CancelOrder(array('variety' => 'NORMAL',
                                       'orderid' => '210312000000394'));
                                       
-    $GetOrderBook = $ab->GetOrderBook();
+    $GetOrderBook = $smart_api ->GetOrderBook();
     
-    $GetTradeBook = $ab->GetTradeBook();
+    $GetTradeBook = $smart_api ->GetTradeBook();
     
-    $GetHoldings =  $ab->GetHoldings();
+    $GetHoldings =  $smart_api ->GetHoldings();
     
-    $GetPosition  = $ab->GetPosition();
+    $GetPosition  = $smart_api ->GetPosition();
     
-    $ConvertPosition  = $ab->ConvertPosition(array("exchange"=>"NSE",
+    $ConvertPosition  = $smart_api ->ConvertPosition(array("exchange"=>"NSE",
                                                 "oldproducttype"=>"INTRADAY",
                                                 "newproducttype"=>"MARGIN",
                                                 "tradingsymbol"=>"JINDALSTEL-EQ",
@@ -100,7 +100,7 @@ use AngelBroking\Websocket;
                                                 "quantity"=>"1",
                                                 "type"=>"DAY"));
                                                 
-   $CreateRule  = $ab->CreateRule(array("tradingsymbol" => "SBIN-EQ", 
+   $CreateRule  = $smart_api ->CreateRule(array("tradingsymbol" => "SBIN-EQ", 
                                       "symboltoken" => "3045", 
                                       "exchange" => "NSE", 
                                       "producttype" => "MARGIN", 
@@ -111,7 +111,7 @@ use AngelBroking\Websocket;
                                       "triggerprice" => 200000,
                                       "timeperiod" => 365));
                                        
-   $ModifyRule  = $ab->ModifyRule(array('id' => '1000059',
+   $ModifyRule  = $smart_api ->ModifyRule(array('id' => '1000059',
                                        "tradingsymbol" => "SBIN-EQ", 
                                       "symboltoken" => "3045", 
                                       "exchange" => "NSE", 
@@ -123,13 +123,13 @@ use AngelBroking\Websocket;
                                       "triggerprice" => 200000,
                                       "timeperiod" => 365));
                                       
-    $CancelRule = $ab->CancelRule(array('symboltoken'  => '3045'
+    $CancelRule = $smart_api ->CancelRule(array('symboltoken'  => '3045'
                                        'exchange'   =>   'NSE' ,
                                       'id'  => '1000059'));
                                       
-    $RuleDetails = $ab->RuleDetails(array('id'=>'1000059'));
+    $RuleDetails = $smart_api ->RuleDetails(array('id'=>'1000059'));
     
-    $RuleList = $ab->RuleList(array( "status"=> [
+    $RuleList = $smart_api ->RuleList(array( "status"=> [
                                       "NEW",
                                       "CANCELLED",
                                       "ACTIVE",
@@ -139,7 +139,7 @@ use AngelBroking\Websocket;
                                  "page"=> 1,
                                  "count"=> 10));
                                  
-    $GetCandleData = $ab->GetCandleData(array("exchange"=> "NSE",
+    $GetCandleData = $smart_api ->GetCandleData(array("exchange"=> "NSE",
                                              "symboltoken"=> "3045",
                                              "interval"=> "MINUTE",
                                              "fromdate"=> "2021-02-08 09:00",

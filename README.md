@@ -3,10 +3,9 @@
 ## Installation
 
 #### Without composer
-Download library from [here](https://github.com/angelbroking-github/smartapi-php) and use as your custome library
+Download library from [here](https://github.com/angelbroking-github/smartapi-php) and use as your custom library
 
 ### Via composer
-Official installation method is via composer
 ```bash
 composer require smartapi-php/angelbroking
 ```
@@ -150,5 +149,5 @@ use AngelBroking\Websocket;
 ## Getting started with SmartAPI Websocket's
 ```
 $websocket = new Websocket();
- print_r($websocket->SocketConnet($client-code, $feed-token, $task, $script));   
+ echo $websocket->SocketConnet($client-code, $feed-token, $task, $script);   
 ```

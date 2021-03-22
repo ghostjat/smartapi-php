@@ -149,5 +149,5 @@ use AngelBroking\Websocket;
 ## Getting started with SmartAPI Websocket's
 ```
 $websocket = new Websocket();
- echo $websocket->SocketConnet($client-code, $feed-token, $task, $script);   
+echo $websocket->SocketConnet($client-code, $feed-token, $task, $script);   
 ```

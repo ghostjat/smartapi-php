@@ -6,13 +6,13 @@
     "license":"MIT",
     "authors": [
         {
-            "name": "Magnus Ideas",
+            "name": "Angel Broking",
             "email": "anam@magnusideas.com"
         }
     ],
     "autoload": {
         "psr-4":{
-             "AngelBroking\\" : "/"
+             "AngelBroking\\" : "/src/"
         }
        
     },

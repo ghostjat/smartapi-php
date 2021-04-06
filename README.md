@@ -150,7 +150,7 @@ use AngelBroking\Websocket;
 ```javascript
 
 //include script.js in you current file
-<script src="socket.js"></script>
+<script src="src/socket.js"></script>
 
 //write script wherever you want live steaming
 	<script type="text/javascript">

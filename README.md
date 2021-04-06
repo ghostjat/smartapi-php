@@ -147,7 +147,38 @@ use AngelBroking\Websocket;
 ```
 
 ## Getting started with SmartAPI Websocket's
-```php
-$websocket = new Websocket();
-echo $websocket->SocketConnet($client-code, $feed-token, $task, $script);   
+```javascript
+
+//include script.js in you current file
+<script src="socket.js"></script>
+
+//write script wherever you want live steaming
+	<script type="text/javascript">
+	
+		var ws =new  websocket('clientCode', 'feedToken', 'scrip', 'task');
+		
+		//connect to server
+		ws.connection().then(() => {
+	        ws.runScript("nse_cm|2885", "mw");
+	         // SCRIPT: exchange|token for multi stocks use & seperator, mcx_fo|222900  ### TASK: mw|sfi|dp
+
+	        setTimeout(function () {
+	            ws.close()
+	        }, 3000)
+	    });
+
+
+	   //add callback method where you can manipulate socket data
+		ws.on('tick', receiveTick);
+
+		//user defined function
+		function receiveTick(data) {
+									
+		    data =  JSON.parse(data);
+		    if (data!=='' ) {
+		    	console.log(data.ltp);
+		    }	   
+	  
+		}
+	</script>
 ```

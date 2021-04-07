@@ -5,6 +5,8 @@
 #### Without composer
 Download library from [here](https://github.com/angelbroking-github/smartapi-php) and use as your custom library
 
+download [socket.js](https://raw.githubusercontent.com/angelbroking-github/smartapi-php/main/src/socket.js)
+
 #### Via composer
 ```bash
 composer require smartapi-php/angelbroking

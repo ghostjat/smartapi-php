@@ -5,6 +5,7 @@
 #### Without composer
 Download library from [here](https://github.com/angelbroking-github/smartapi-php) and use as your custom library
 
+
 #### Via composer
 ```bash
 composer require smartapi-php/angelbroking
@@ -147,7 +148,41 @@ use AngelBroking\Websocket;
 ```
 
 ## Getting started with SmartAPI Websocket's
-```php
-$websocket = new Websocket();
-echo $websocket->SocketConnet($client-code, $feed-token, $task, $script);   
+
+Download [socket.js](https://raw.githubusercontent.com/angelbroking-github/smartapi-php/main/src/socket.js) form src/socket.js and add it to your assets folder
+
+```javascript
+
+//include script.js in you current file
+<script src="YOUR_FOLDER_PATH/socket.js"></script>
+
+//write script wherever you want live steaming
+	<script type="text/javascript">
+	
+		var ws =new  websocket('clientCode', 'feedToken', 'scrip', 'task');
+		
+		//connect to server
+		ws.connection().then(() => {
+	        ws.runScript("nse_cm|2885", "mw");
+	         // SCRIPT: exchange|token for multi stocks use & seperator, mcx_fo|222900  ### TASK: mw|sfi|dp
+
+	        setTimeout(function () {
+	            ws.close()
+	        }, 3000)
+	    });
+
+
+	   //add callback method where you can manipulate socket data
+		ws.on('tick', receiveTick);
+
+		//user defined function
+		function receiveTick(data) {
+									
+		    data =  JSON.parse(data);
+		    if (data!=='' ) {
+		    	console.log(data.ltp);
+		    }	   
+	  
+		}
+	</script>
 ```

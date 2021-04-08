@@ -33,7 +33,6 @@ $smart_api ->GenerateSession("client-code","password");
 Import package to controller
 ```
 use AngelBroking\SmartApi;
-use AngelBroking\Websocket;
 ```
 
 ## Getting started with API

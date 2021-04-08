@@ -20,7 +20,10 @@ The simplest usage of the library would be as follows:
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$smart_api  = new \AngelBroking\SmartApi();
+$smart_api  = new \AngelBroking\SmartApi(
+// OPTIONAL
+    //  "YOUR_ACCESS_TOKEN",
+    // "YOUR_REFRESH_TOKEN");
 	
 $smart_api ->GenerateSession("client-code","password");
    
@@ -39,7 +42,11 @@ use AngelBroking\SmartApi;
 ```php
   //in your function of controller create instance of AngelBroking class
 
-    $smart_api  = new SmartApi();
+    $smart_api  = new SmartApi(
+    				// OPTIONAL
+			    //  "YOUR_ACCESS_TOKEN",
+			    // "YOUR_REFRESH_TOKEN"
+				);
     
     //Login
     $smart_api ->GenerateSession("Client-code","password");

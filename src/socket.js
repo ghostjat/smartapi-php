@@ -1,5 +1,4 @@
 var imported = document.createElement('script');
-//imported.src = './../includes/pako_inflate.js';
 imported.src = 'https://cdnjs.cloudflare.com/ajax/libs/pako/1.0.11/pako_inflate.js';
 document.head.appendChild(imported);
 
@@ -30,10 +29,6 @@ function websocket(clientcode, feedtoken, script, task)
 
 			conn.send(_req);
 
-
-			// var _req = '{"task":"'+task+'","channel":"' + strwatchlistscrips + '","token":"' + feed_token + '","user": "' + client_code + '","acctid":"' + client_code + '"}';
-			// //console.log(_req)
-			// conn.send(_req);
 
 			setInterval(function () {
 				var _hb_req = '{"task":"hb","channel":"","token":"' + feed_token + '","user": "' + client_code + '","acctid":"' + client_code + '"}';
@@ -66,7 +61,6 @@ function websocket(clientcode, feedtoken, script, task)
 		conn.onclose = function (evt) {
 			console.log("Socket closed");
 			trigger("tick",['Socket Closed']);
-		//conn.connect();
 		};
 	});
 	}
@@ -105,23 +99,7 @@ function _atos(array) {
      return newarray.join('');
 }
 
-// function _atos(array) {
-// 	var newarray = '';
-// 	try {
-// 		for (var i = 0; i < array.length; i++) {
-// 			//newarray.push(String.fromCharCode(array[i]));
-// 			var chr = String.fromCharCode(array[i]);
 
-// 			if( chr!="]" && chr !='[')
-// 			{
-// 			//console.log(chr);
-// 			newarray +=String.fromCharCode(array[i]);
-// 			}
-// 		}
-// 	} catch (e) { }
-
-// 	return newarray; 
-// }
 
 function trigger(e, args) {
      if (!triggers[e]) return

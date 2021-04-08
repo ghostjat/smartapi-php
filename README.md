@@ -140,7 +140,7 @@ use AngelBroking\SmartApi;
                                  
     $GetCandleData = $smart_api ->GetCandleData(array("exchange"=> "NSE",
                                              "symboltoken"=> "3045",
-                                             "interval"=> "MINUTE",
+                                             "interval"=> "ONE_MINUTE",
                                              "fromdate"=> "2021-02-08 09:00",
                                              "todate"=> "2021-02-08 09:16"));
     

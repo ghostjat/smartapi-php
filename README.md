@@ -5,7 +5,6 @@
 #### Without composer
 Download library from [here](https://github.com/angelbroking-github/smartapi-php) and use as your custom library
 
-download [socket.js](https://raw.githubusercontent.com/angelbroking-github/smartapi-php/main/src/socket.js)
 
 #### Via composer
 ```bash
@@ -149,10 +148,13 @@ use AngelBroking\Websocket;
 ```
 
 ## Getting started with SmartAPI Websocket's
+
+Download [socket.js](https://raw.githubusercontent.com/angelbroking-github/smartapi-php/main/src/socket.js) form src/socket.js and add it to your assets folder
+
 ```javascript
 
 //include script.js in you current file
-<script src="src/socket.js"></script>
+<script src="YOUR_FOLDER_PATH/socket.js"></script>
 
 //write script wherever you want live steaming
 	<script type="text/javascript">

@@ -1,5 +1,5 @@
 //include script.js in you current file
-<script src="socket.js"></script>
+<script src="websocket_client.js"></script>
 
 <?php
 
@@ -20,18 +20,18 @@ echo $login;
     
    //  $rms = $smart_api ->GetRMS();
     
-   //  $order = $smart_api ->PlaceOrder(array('variety' => 'NORMAL',
-   //                                  'tradingsymbol'  =>  'JINDALSTEL-EQ',
-   //                                  'symboltoken' => '6733',
-   //                                  'exchange' => 'NSE',
-   //                                  'transactiontype' => 'SELL',
-   //                                  'ordertype' => 'LIMIT',
-   //                                  'quantity' => '1',
-   //                                  'producttype' => 'INTRADAY',
-   //                                  'price' => 312.65,
-   //                                  'squareoff' => 0,
-   //                                  'stoploss' => 0,
-   //                                  'duration' => 'DAY'));
+    $order = $smart_api ->PlaceOrder(array('variety' => 'NORMAL',
+                                    'tradingsymbol'  =>  'JINDALSTEL-EQ',
+                                    'symboltoken' => '6733',
+                                    'exchange' => 'NSE',
+                                    'transactiontype' => 'SELL',
+                                    'ordertype' => 'LIMIT',
+                                    'quantity' => '1',
+                                    'producttype' => 'INTRADAY',
+                                    'price' => 312.65,
+                                    'squareoff' => 0,
+                                    'stoploss' => 0,
+                                    'duration' => 'DAY'));
                                     
    //   $modifyOrder = $smart_api ->ModifyOrder(array('variety' => 'NORMAL',
    //                                  'tradingsymbol'  =>  'JINDALSTEL-EQ',
@@ -116,31 +116,21 @@ echo $login;
 ?>
 
 <script type="text/javascript">
-	
-		var ws =new  websocket('clientCode', 'feedToken', 'scrip', 'task');
-		
-		//connect to server
-		ws.connection().then(() => {
-	        ws.runScript("nse_cm|2885", "mw");
-	         // SCRIPT: exchange|token for multi stocks use & seperator, mcx_fo|222900  ### TASK: mw|sfi|dp
+	let web_socket = new WebSocketClient("Client_code",    
+		    "JwtToken",
+		    "your Api key",
+		    "order_feed",
+		);
 
-	        setTimeout(function () {
-	            ws.close()
-	        }, 3000)
-	    });
+		web_socket.connect()
+		    .then(() => {
+		        web_socket.fetchData("subscribe", "order_feed")  // ACTION_TYPE: subscribe | unsubscribe FEED_TYPE: order_feed
+		    })
+
+		web_socket.on('tick', receiveTick)
 
 
-	   //add callback method where you can manipulate socket data
-		ws.on('tick', receiveTick);
-
-		//user defined function
 		function receiveTick(data) {
-			
-			console.log(data);			
-		    // data =  JSON.parse(data);
-		    // if (data!=='' ) {
-		    // 	console.log(data.ltp);
-		    // }	   
-	  
+		    console.log("receiveTick:::::", data)
 		}
 	</script>

@@ -155,7 +155,7 @@ use AngelBroking\SmartApi;
 
 ## Getting started with SmartAPI Websocket's
 
-Download [socket.js](https://raw.githubusercontent.com/angelbroking-github/smartapi-php/main/src/socket.js) form src/socket.js and add it to your assets folder
+Download [socket.js](https://raw.githubusercontent.com/angelbroking-github/smartapi-php/main/src/socket.js) from src/socket.js and add it to your assets folder
 
 ```javascript
 

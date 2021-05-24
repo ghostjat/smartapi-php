@@ -3,7 +3,7 @@
 ## Installation
 
 #### Without composer
-Download library from [here](https://github.com/angelbroking-github/smartapi-php) and use as your custom library
+Download library from [here](https://github.com/angelbroking-github/smartapi-php/archive/refs/tags/1.7.zip) and use as your custom library
 
 
 #### Via composer

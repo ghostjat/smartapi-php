@@ -1,5 +1,5 @@
 <?php
-namespace AngelBroking;
+//namespace AngelBroking;
 
 class AngelConfigrationManage
 {

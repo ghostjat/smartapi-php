@@ -10,6 +10,17 @@ error_reporting(E_ALL);
 
 class SmartApi
 {
+	
+	public function __construct($jwtToken='', $refreshToken='')
+	{
+		if (!empty($jwtToken) || !empty($refreshToken)) {
+			$_SESSION['jwtToken']		=	$jwtToken;
+			$_SESSION['refreshToken']	=   $refreshToken;
+			setcookie('jwtToken', $jwtToken);
+			setcookie('refreshToken', $refreshToken);
+		}
+			
+	}
 
 	public static function GenerateSession($clientcode, $password)
 	{

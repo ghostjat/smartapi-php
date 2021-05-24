@@ -20,7 +20,10 @@ The simplest usage of the library would be as follows:
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$smart_api  = new \AngelBroking\SmartApi();
+$smart_api  = new \AngelBroking\SmartApi(
+// OPTIONAL
+    //  "YOUR_ACCESS_TOKEN",
+    // "YOUR_REFRESH_TOKEN");
 	
 $smart_api ->GenerateSession("client-code","password");
    
@@ -33,14 +36,17 @@ $smart_api ->GenerateSession("client-code","password");
 Import package to controller
 ```
 use AngelBroking\SmartApi;
-use AngelBroking\Websocket;
 ```
 
 ## Getting started with API
 ```php
   //in your function of controller create instance of AngelBroking class
 
-    $smart_api  = new SmartApi();
+    $smart_api  = new SmartApi(
+    				// OPTIONAL
+			    //  "YOUR_ACCESS_TOKEN",
+			    // "YOUR_REFRESH_TOKEN"
+				);
     
     //Login
     $smart_api ->GenerateSession("Client-code","password");
@@ -141,7 +147,7 @@ use AngelBroking\Websocket;
                                  
     $GetCandleData = $smart_api ->GetCandleData(array("exchange"=> "NSE",
                                              "symboltoken"=> "3045",
-                                             "interval"=> "MINUTE",
+                                             "interval"=> "ONE_MINUTE",
                                              "fromdate"=> "2021-02-08 09:00",
                                              "todate"=> "2021-02-08 09:16"));
     
@@ -149,7 +155,7 @@ use AngelBroking\Websocket;
 
 ## Getting started with SmartAPI Websocket's
 
-Download [socket.js](https://raw.githubusercontent.com/angelbroking-github/smartapi-php/main/src/socket.js) form src/socket.js and add it to your assets folder
+Download [socket.js](https://raw.githubusercontent.com/angelbroking-github/smartapi-php/main/src/socket.js) from src/socket.js and add it to your assets folder
 
 ```javascript
 

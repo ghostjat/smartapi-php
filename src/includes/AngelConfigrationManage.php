@@ -5,24 +5,12 @@ class AngelConfigrationManage
 {
 	public static function AngelConfigrationData()
 	{
-			/*
-			 	Production :	https://apiconnect.angelbroking.com
-			 	Client_code : S212741
-				Password : angel@123
-			*/
-
-			// Only for login : https://smartapi.angelbroking.com
-
-			/*
-				Development : https://openapisuat.angelbroking.com	
-				Client_code : D88322
-				Password : Angel@444
-			*/
+			
 				
 	 		$Configration = 
 
 			    [
-			        "root" => "https://openapisuat.angelbroking.com",
+			        "root" => "https://apiconnect.angelbroking.com",
 				    "login" => "https://smartapi.angelbroking.com/publisher-login",
 				    "debug" => false,
 				    "timeout" => 7000,

@@ -15,25 +15,30 @@ function websocket(clientcode, feedtoken, script, task)
 	var client_code = clientcode;
 	var strwatchlistscrips = script;//"nse_cm|2885";
 	var task =task;//'mw'; 
+	var conn = new WebSocket('wss://wsfeeds.angelbroking.com/NestHtml5Mobile/socket/stream');//('wss://omnefeeds.angelbroking.com/NestHtml5Mobile/socket/stream');
 
 	this.connection = function (){
 		return new Promise((resolve, reject) => {
 		if (client_code === null || feed_token === null) 
 			return "client_code or feed_token is missing";
 
-		var conn = new WebSocket('wss://wsfeeds.angelbroking.com/NestHtml5Mobile/socket/stream');//('wss://omnefeeds.angelbroking.com/NestHtml5Mobile/socket/stream');
+		
 
 		conn.onopen = function(e) { 
 
 			var _req = '{"task":"cn","channel":"","token":"' + feed_token + '","user":"' + client_code + '","acctid":"' + client_code + '"}'; 
 
-			conn.send(_req);
+			var result = conn.send(_req);
 
+			trigger("connect", [result]);
 
+			/*
 			setInterval(function () {
 				var _hb_req = '{"task":"hb","channel":"","token":"' + feed_token + '","user": "' + client_code + '","acctid":"' + client_code + '"}';
 				conn.send(_hb_req);
 			}, 60000);
+			*/
+
 		}; 
 		conn.onmessage = function(e) {
 
@@ -66,6 +71,7 @@ function websocket(clientcode, feedtoken, script, task)
 	}
 
 	this.runScript = function (script, task) {
+		  
           if (task === null)
            return "task is missing";
           if (task === "mw" || task === "sfi" || task === "dp") {

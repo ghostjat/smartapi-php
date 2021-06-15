@@ -1,9 +1,11 @@
-//include script.js in you current file
-<script src="socket.js"></script>
+
+<script src="<YOUR-PATH>/socket.js"></script>
 
 <?php
 
 require_once __DIR__ . '/vendor/autoload.php';
+//OR
+//require_once '<YOUR-PATH>/SmartApi.php';
 
 $smart_api  = new \AngelBroking\SmartApi();
 	
@@ -117,30 +119,32 @@ echo $login;
 
 <script type="text/javascript">
 	
-		var ws =new  websocket('clientCode', 'feedToken', 'scrip', 'task');
+		var ws =new  websocket('client-code', 'feed-token');
 		
 		//connect to server
-		ws.connection().then(() => {
-	        ws.runScript("nse_cm|2885", "mw");
-	         // SCRIPT: exchange|token for multi stocks use & seperator, mcx_fo|222900  ### TASK: mw|sfi|dp
+		ws.connection();
 
-	        setTimeout(function () {
-	            ws.close()
-	        }, 3000)
-	    });
+      //add callback after socket connection
+      ws.on('connect', connectionOpen);
 
+      function connectionOpen()
+      {   
+        
+         ws.runScript("nse_cm|2885", "mw");
+
+         // ws.runScript("script", "task");
+          // SCRIPT: exchange|token for multi stocks use & seperator, mcx_fo|222900  ### TASK: mw|sfi|dp
+      }
 
 	   //add callback method where you can manipulate socket data
 		ws.on('tick', receiveTick);
 
 		//user defined function
 		function receiveTick(data) {
-			
-			console.log(data);			
-		    // data =  JSON.parse(data);
-		    // if (data!=='' ) {
-		    // 	console.log(data.ltp);
-		    // }	   
-	  
+			console.log(data);
+         if (data.length == 0) 
+         {
+             ws.close();
+         }
 		}
 	</script>

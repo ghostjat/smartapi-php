@@ -165,30 +165,33 @@ Download [socket.js](https://raw.githubusercontent.com/angelbroking-github/smart
 //write script wherever you want live steaming
 	<script type="text/javascript">
 	
-		var ws =new  websocket('clientCode', 'feedToken', 'scrip', 'task');
+		var ws =new  websocket('clientCode', 'feedToken');
 		
 		//connect to server
-		ws.connection().then(() => {
-	        ws.runScript("nse_cm|2885", "mw");
-	         // SCRIPT: exchange|token for multi stocks use & seperator, mcx_fo|222900  ### TASK: mw|sfi|dp
+    ws.connection();
 
-	        setTimeout(function () {
-	            ws.close()
-	        }, 3000)
-	    });
+      //add callback after socket connection
+      ws.on('connect', connectionOpen);
 
+      function connectionOpen()
+      {   
+         ws.runScript("nse_cm|2885", "mw");
+          // SCRIPT: exchange|token for multi stocks use & seperator, mcx_fo|222900  ### TASK: mw|sfi|dp
+      }
 
-	   //add callback method where you can manipulate socket data
-		ws.on('tick', receiveTick);
+     //add callback method where you can manipulate socket data
+    ws.on('tick', receiveTick);
 
-		//user defined function
-		function receiveTick(data) {
-									
-		    data =  JSON.parse(data);
-		    if (data!=='' ) {
-		    	console.log(data.ltp);
-		    }	   
-	  
-		}
+    //user defined function
+    function receiveTick(data) {
+      
+      console.log(data);
+         if (data.length == 0) 
+         {
+             ws.close();
+         }
+
+    
+    }
 	</script>
 ```

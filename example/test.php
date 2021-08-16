@@ -113,6 +113,10 @@ echo $login;
    //                                           "fromdate"=> "2021-02-08 09:00",
    //                                           "todate"=> "2021-02-08 09:16"));
 
+ //  $GetLtpData = $smart_api ->GetLtpData(array('exchange'  => 'NSE',
+    //                                   'tradingsymbol'   =>   'SBIN-EQ' ,
+    //                                  'symboltoken'  => '3045'));
+
    
 
 ?>

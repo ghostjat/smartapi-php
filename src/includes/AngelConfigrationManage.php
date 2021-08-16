@@ -38,6 +38,7 @@ class AngelConfigrationManage
 				    "rule_list" => "/rest/secure/angelbroking/gtt/v1/ruleList",
 				
 				    "candle_data"=>"/candle-data-service/rest/secure/angelbroking/historical/v1/getCandleData",
+				    "ltp_data"=>"/rest/secure/angelbroking/order/v1/getLtpData",
 				];
 
 			return $Configration;	

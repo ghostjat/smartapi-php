@@ -591,6 +591,38 @@ class SmartApi
 		
 		return $response_data;
 	}
+	
+	public static function GetLtpData($paramArray)
+	{
+		extract($paramArray);
+
+		//getToken() check whether userlogged in or not and return jwtToken
+		$token = self::getToken();
+				
+		 if ($token['status']) {
+		 	//jwtToken not empty 
+			$jwtToken = $token['jwtToken'];
+
+			//get url from config file
+			$UrlData = AngelConfigrationManage::AngelConfigrationData();
+			$url = $UrlData['root'].$UrlData['ltp_data'];	  	
+			
+			$api_parameter	=	array("exchange"=> "$exchange",
+								     "tradingsymbol"=> "$tradingsymbol",
+								     "symboltoken"=> "$symboltoken",
+							 );			
+			
+			// Common function to call smart api
+			$response_data	=	self::CurlOperation($url,$api_parameter, $jwtToken,'POST');
+		}
+		else{
+			$response_data['status'] = 'fail';
+			$response_data['error'] = 'The token is invalid';
+			$response_data	=	json_encode($response_data);
+		}
+		
+		return $response_data;
+	}
 
 	public static function getToken()
 	{
